@@ -1,8 +1,24 @@
+const nombreCache = 'apv-v1';
+const archivos = [
+    '/',
+    'index.html',
+    '/css/bootstrap.css',
+    '/css/styles.css',
+    '/js/app.js',
+    '/js/apv.js'
+];
+
 // cuando se instala el servis worker
 self.addEventListener('install', e => {
     console.log('Instalando el Servis Worker');
 
-    console.log(e);
+    e.waitUntil(
+        caches.open(nombreCache)
+            .then( cache => {
+                console.log('cacheando');
+                cache.addAll(archivos)
+            })
+    )
 });
 
 // activar el servis worker

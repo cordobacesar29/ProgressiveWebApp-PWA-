@@ -11,7 +11,7 @@
   }*/
 
 if( 'serviceWorker' in navigator ) {
-    navigator.serviceWorker.register('./sw.js', { scope:'public/'})
+    navigator.serviceWorker.register('./sw.js', { scope:'./sw.js'})
         .then( registrado => console.log('ok', registrado) )
         .catch( error => console.log('fall....', error) );
 } else {
